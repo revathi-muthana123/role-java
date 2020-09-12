@@ -1,0 +1,9 @@
+.idea/
+.vagrant
+playbook.yml
+Vagrantfile
+*.retry
+*.pem
+**/.cache/**/*
+**/.ssh/**/*
+!.getkeep

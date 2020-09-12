@@ -1,0 +1,19 @@
+# file:role-java/defaults/main.yml
+---
+java_install: "/app/jdk"
+java_home: "{{ java_install }}/current"
+
+# java_id is a part of the download-url and has to be changed for every version. 
+# ID can be retrieved manually from the download link in 
+# http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+# java_id: a58eab1ec242421181065cdc37240b08
+# java_checksum: "ee60304d782c9d5654bf1a6b3f38c683921c1711045e1db94525a51b7024a2ca"
+# java_version: '11.0.7+10'
+# java_build: 'b11'
+# java_build: "OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz"
+java_checksum: "{{ openjdk_checksum }}"
+java_version: '{{ openjdk_version }}'
+# java_build: 'b11'
+java_build: "{{ openjdk_build }}"
+
+# java_install_download_url: "http://download.oracle.com/otn-pub/java/jdk/{{ java_version }}-{{ java_build }}/{{java_id}}/jdk-{{ java_version }}_linux_x64.tar.gz"
