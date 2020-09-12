@@ -1,15 +1,11 @@
 ---
 
 - name: download java {{ java_version }}
-  import_role:
-    name: library
-    tasks_from: download_file.yml
-  vars:
-    url: "{{ java_install_download_url }}"
+  get_url :
+    url : "{{ java_install_download_url }}"
     dest: "/tmp/{{ java_build }}"
     sha256checksum: "{{ java_checksum }}"
-#    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
-#    validate_certs: no
+
 
 - name: check if jdk root directory exists
   stat:
@@ -24,9 +20,7 @@
     recurse: yes
     owner: root
     group: root
-  when:
-    ((if_jdk.stat is not defined) or (if_jdk.stat.exists == false))
-
+  
 - name: extract archive
   unarchive:
     src: "/tmp/{{ java_build }}"

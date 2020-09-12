@@ -1,2 +1,8 @@
 ---
-- import_tasks: install.yml
+
+- name: Include task list in play
+  import_tasks: install.yaml
+
+
+
+
